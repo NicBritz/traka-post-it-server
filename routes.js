@@ -15,4 +15,18 @@ router.get("/users", async (req, res) => {
   res.send(users);
 });
 
+// create a post
+router.post("/post", async (req, res) => {
+  const post = new Post(req.body);
+  await post.save();
+  res.send(post);
+});
+
+//create a user
+router.post("/user", async (req, res) => {
+  const user = new User(req.body);
+  await user.save();
+  res.send(user);
+});
+
 module.exports = router;
