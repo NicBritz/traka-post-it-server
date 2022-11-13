@@ -9,6 +9,19 @@ router.get("/posts", async (req, res) => {
   res.send(posts);
 });
 
+// get a post by id
+router.get("/posts/:id", async (req, res) => {
+  const post = await Post.findById({ _id: req.params.id });
+  res.send(post);
+});
+
+// get a user by id
+router.get("/users/:id", async (req, res) => {
+  console.log(req.params.id);
+  const user = await User.findById({ _id: req.params.id });
+  res.send(user);
+});
+
 // get all users
 router.get("/users", async (req, res) => {
   const users = await User.find();
